@@ -48,7 +48,7 @@ export function Footer() {
     <footer className="bg-neutral-950 text-white">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
         {/* Brand */}
-        <div className="max-w-2xl">
+        <div className="max-w-2xl text-center sm:text-left">
           <span className="font-heading text-5xl font-bold tracking-tight">
             Wanderly
           </span>
@@ -59,18 +59,18 @@ export function Footer() {
 
         <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
           {/* Newsletter */}
-          <div>
+          <div className="text-center sm:text-left">
             <ColumnTitle>Newsletter</ColumnTitle>
-            <p className="mt-3 max-w-xs text-sm text-white/60">
+            <p className="mx-auto mt-3 max-w-xs text-sm text-white/60 sm:mx-0">
               Subscribe for exclusive travel deals and inspiration.
             </p>
-            <form action="#" className="relative mt-4 max-w-xs">
+            <form action="#" className="relative mx-auto mt-4 max-w-xs sm:mx-0">
               <Input
                 type="email"
                 name="email"
                 placeholder="Enter email"
                 aria-label="Email address"
-                className="h-11 border-white/15 bg-white/10 pr-11 text-white placeholder:text-white/50 focus-visible:border-white/40 focus-visible:ring-white/30"
+                className="h-11 border-white/15 bg-white/10 pr-11 text-left text-white placeholder:text-white/50 focus-visible:border-white/40 focus-visible:ring-white/30"
               />
               <Button
                 type="submit"
@@ -85,7 +85,7 @@ export function Footer() {
           </div>
 
           {/* Quick links */}
-          <div>
+          <div className="text-center sm:text-left">
             <ColumnTitle>Quick Links</ColumnTitle>
             <ul className="mt-4 space-y-2.5">
               {quickLinks.map((link) => (
@@ -102,7 +102,7 @@ export function Footer() {
           </div>
 
           {/* Support */}
-          <div>
+          <div className="text-center sm:text-left">
             <ColumnTitle>Support</ColumnTitle>
             <ul className="mt-4 space-y-2.5">
               {supportLinks.map((link) => (
@@ -119,7 +119,7 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="text-center sm:text-left">
             <ColumnTitle>Contact Us</ColumnTitle>
             <ul className="mt-4 space-y-2.5 text-sm text-white/60">
               <li>
@@ -143,12 +143,12 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col items-center gap-4 border-t border-white/10 pt-6 sm:flex-row sm:justify-between">
           {/* Literal year: cacheComponents treats new Date() as unstable during prerender */}
-          <p className="text-sm text-white/50">
+          <p className="text-center text-sm text-white/50 sm:text-left">
             © 2026 Wanderly. All rights reserved.
           </p>
-          <div className="flex items-center gap-5">
+          <div className="flex items-center justify-center gap-5 sm:justify-end">
             {socials.map((social) => (
               <a
                 key={social.label}
