@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { User } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 import { MobileNav } from "@/components/layout/mobile-nav"
 import { cn } from "cn"
 
@@ -45,14 +45,17 @@ export function Navbar() {
 
         {/* Right — account actions */}
         <div className="hidden items-center justify-end gap-2 md:flex">
-          <Button
-            variant="ghost"
-            size="sm"
-            className="gap-1.5 text-foreground/70 hover:text-foreground"
+          <Link
+            href="/profile"
+            className={buttonVariants({
+              variant: "ghost",
+              size: "sm",
+              className: "gap-1.5 text-foreground/70 hover:text-foreground",
+            })}
           >
             <User data-icon="inline-start" />
             Profile
-          </Button>
+          </Link>
           <Button
             variant="ghost"
             size="sm"

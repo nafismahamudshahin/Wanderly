@@ -7,7 +7,7 @@ const quickLinks = [
   { label: "Home", href: "/" },
   { label: "Destinations", href: "#" },
   { label: "My Bookings", href: "#" },
-  { label: "My Profile", href: "#" },
+  { label: "My Profile", href: "/profile" },
 ]
 
 const supportLinks = [
