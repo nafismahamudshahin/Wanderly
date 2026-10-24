@@ -10,7 +10,7 @@ export function Hero() {
       <div className="relative min-h-[85vh] w-full overflow-hidden">
         <Image
           src="/images/Banner.png"
-          alt="Turquoise water lapping a white sand beach lined with palm trees"
+          alt="Aerial view of a secluded coastal bay ringed by hills and villas"
           fill
           priority
           sizes="100vw"
