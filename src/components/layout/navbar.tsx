@@ -6,7 +6,7 @@ import { cn } from "cn"
 
 const navLinks = [
   { label: "Home", href: "/", active: true },
-  { label: "Destinations", href: "#" },
+  { label: "Destinations", href: "/destinations" },
   { label: "My Bookings", href: "#" },
   { label: "Admin", href: "#" },
 ]
