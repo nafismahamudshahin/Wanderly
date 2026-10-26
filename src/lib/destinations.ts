@@ -1,49 +1,29 @@
-import { cache } from "react"
-import type {
-  DestinationResult,
-  DestinationsResult,
-  Destination,
-} from "@/types/types"
+import type { DestinationsResult, Destination, } from "@/types/types"
 
-const DESTINATIONS_API_URL =
-  process.env.DESTINATIONS_API_URL ?? "http://localhost:5000/destination"
+const DESTINATIONS_API_URL = process.env.DESTINATIONS_API_URL ?? "http://localhost:5000/destination"
 
 /** Fetch a single destination by id. Cached per render pass so page data and metadata share one request. */
-export const getDestination = cache(
-  async (id: string): Promise<DestinationResult> => {
-    try {
-      const response = await fetch(`${DESTINATIONS_API_URL}/${id}`, {
-        cache: "no-store",
-      })
-      if (response.status === 404) {
-        return { destination: null, error: null }
-      }
-      if (!response.ok) {
-        throw new Error(`Request failed (${response.status})`)
-      }
+export async function getDestination(id: string) {
+  try {
+    const response = await fetch(
+      `${DESTINATIONS_API_URL}/${id}`,
+      { cache: "no-store" }
+    )
 
-      const data: unknown = await response.json()
-      if (
-        !data ||
-        typeof data !== "object" ||
-        !("_id" in data) ||
-        !("name" in data)
-      ) {
-        throw new Error("The destinations API returned an invalid response.")
-      }
+    if (!response.ok) {
+      return { destination: null, error: "Destination not found" }
+    }
 
-      return { destination: data as Destination, error: null }
-    } catch (fetchError) {
-      return {
-        destination: null,
-        error:
-          fetchError instanceof Error
-            ? fetchError.message
-            : "Could not load the destination.",
-      }
+    const destination = await response.json()
+
+    return { destination, error: null }
+  } catch {
+    return {
+      destination: null,
+      error: "Something went wrong",
     }
   }
-)
+}
 
 export async function getDestinations(): Promise<DestinationsResult> {
   try {

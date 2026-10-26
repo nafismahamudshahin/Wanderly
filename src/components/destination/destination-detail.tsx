@@ -9,13 +9,13 @@ import {
   CalendarDays,
   Check,
   MapPin,
-  Pencil,
   Star,
   Trash2,
 } from "lucide-react"
 import { toast } from "sonner"
 import { cn } from "cn"
 import { Button, buttonVariants } from "@/components/ui/button"
+import { UpdateDestinationDialog } from "@/components/destination/update-destination-dialog"
 import type { Destination } from "@/types/types"
 
 /** Sample content until the API provides real highlights. */
@@ -56,14 +56,7 @@ export function DestinationDetail({ destination }: { destination: Destination })
         </Link>
 
         <div className="flex items-center gap-2">
-          <Button
-            type="button"
-            variant="outline"
-            onClick={() => toast.info("Editing destinations is coming soon")}
-          >
-            <Pencil aria-hidden="true" className="size-3.5" />
-            Edit
-          </Button>
+          <UpdateDestinationDialog destination={destination} />
           <Button
             type="button"
             variant="outline"
