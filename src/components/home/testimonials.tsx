@@ -6,14 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-
-type Testimonial = {
-  quote: string
-  name: string
-  location: string
-  /** Portrait path; omit to fall back to an initials avatar. */
-  portrait?: string
-}
+import type { Testimonial } from "@/types/types"
 
 const testimonials: Testimonial[] = [
   {

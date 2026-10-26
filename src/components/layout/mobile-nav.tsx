@@ -10,12 +10,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { cn } from "cn"
-
-type NavLink = {
-  label: string
-  href: string
-  active?: boolean
-}
+import type { NavLink } from "@/types/types"
 
 export function MobileNav({ links }: { links: NavLink[] }) {
   return (
