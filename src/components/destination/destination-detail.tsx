@@ -10,13 +10,13 @@ import {
   Check,
   MapPin,
   Star,
-  Trash2,
 } from "lucide-react"
 import { toast } from "sonner"
 import { cn } from "cn"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { UpdateDestinationDialog } from "@/components/destination/update-destination-dialog"
 import type { Destination } from "@/types/types"
+import DeleteDestinationDialog from "./delete-destination-dialog"
 
 /** Sample content until the API provides real highlights. */
 const HIGHLIGHTS = [
@@ -57,19 +57,11 @@ export function DestinationDetail({ destination }: { destination: Destination })
 
         <div className="flex items-center gap-2">
           <UpdateDestinationDialog destination={destination} />
-          <Button
-            type="button"
-            variant="outline"
-            className="border-destructive/40 text-destructive hover:bg-destructive/5 hover:text-destructive"
-            onClick={() => toast.info("Cancelling bookings is coming soon")}
-          >
-            <Trash2 aria-hidden="true" className="size-3.5" />
-            Cancel
-          </Button>
+          <DeleteDestinationDialog destination={destination} />
         </div>
       </header>
 
-      <div className="relative mt-5 aspect-[2/1] overflow-hidden bg-muted">
+      <div className="relative mt-5 aspect-2/1 overflow-hidden bg-muted">
         <Image
           src={destination.image}
           alt={destination.name}
@@ -208,7 +200,7 @@ export function DestinationDetailLoading() {
             <div className="h-8 w-20 rounded-lg bg-muted" />
           </div>
         </div>
-        <div className="mt-5 aspect-[2/1] rounded-lg bg-muted" />
+        <div className="mt-5 aspect-2/1 rounded-lg bg-muted" />
         <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-10">
           <div>
             <div className="h-4 w-28 rounded bg-muted" />
