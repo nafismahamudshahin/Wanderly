@@ -15,6 +15,11 @@ export interface DestinationsResult {
   error: string | null
 }
 
+export interface DestinationResult {
+  destination: Destination | null
+  error: string | null
+}
+
 export type PriceRange =
   | "all"
   | "under-500"
