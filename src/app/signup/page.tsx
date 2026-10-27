@@ -39,7 +39,7 @@ const SignUpPage = () => {
         form.reset()
     };
     return (
-        <main className="flex min-h-screen items-center justify-center bg-[#f7f8fa] px-4 py-8">
+        <main className="flex items-center justify-center bg-[#f7f8fa] px-4 py-8">
             <div className="w-full max-w-84.5 sm:max-w-100">
                 <header className="mb-5 text-center">
                     <h1 className="font-serif text-[27px] leading-tight tracking-tight text-[#171717]">

@@ -56,13 +56,15 @@ export function Navbar() {
             <User data-icon="inline-start" />
             Profile
           </Link>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="text-foreground/70 hover:text-foreground"
-          >
-            Login
-          </Button>
+          <Link href="/login">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-foreground/70 hover:text-foreground"
+            >
+              Login
+            </Button>
+          </Link>
           <Link href="/signup">
             <Button
               size="sm"
