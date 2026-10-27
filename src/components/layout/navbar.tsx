@@ -13,7 +13,7 @@ const navLinks = [
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/75">
+    <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/7">
       <div className="mx-auto grid h-16 max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 sm:px-6 lg:px-8">
         {/* Left — desktop links / mobile menu */}
         <nav className="hidden items-center gap-1 md:flex">
@@ -63,12 +63,14 @@ export function Navbar() {
           >
             Login
           </Button>
-          <Button
-            size="sm"
-            className="bg-brand text-brand-foreground hover:bg-brand/90"
-          >
-            Sign Up
-          </Button>
+          <Link href="/signup">
+            <Button
+              size="sm"
+              className="bg-brand text-brand-foreground hover:bg-brand/90"
+            >
+              Sign Up
+            </Button>
+          </Link>
         </div>
       </div>
     </header>
