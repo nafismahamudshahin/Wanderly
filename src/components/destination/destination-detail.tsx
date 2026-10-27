@@ -5,18 +5,18 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import {
   ArrowLeft,
-  ArrowRight,
   CalendarDays,
   Check,
   MapPin,
   Star,
 } from "lucide-react"
-import { toast } from "sonner"
+
 import { cn } from "cn"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { UpdateDestinationDialog } from "@/components/destination/update-destination-dialog"
 import type { Destination } from "@/types/types"
 import DeleteDestinationDialog from "./delete-destination-dialog"
+import BookingCard from "./booking-card"
 
 /** Sample content until the API provides real highlights. */
 const HIGHLIGHTS = [
@@ -26,22 +26,6 @@ const HIGHLIGHTS = [
   "Private beach dinner experience",
   "Sunrise trek to Mount Batur",
 ]
-
-const GUARANTEES = [
-  "Free cancellation up to 7 days",
-  "Travel insurance included",
-  "24/7 customer support",
-]
-
-function formatDepartureDate(value: string) {
-  const date = new Date(value)
-  if (Number.isNaN(date.getTime())) return value
-  return date.toLocaleDateString("en-US", {
-    month: "2-digit",
-    day: "2-digit",
-    year: "numeric",
-  })
-}
 
 export function DestinationDetail({ destination }: { destination: Destination }) {
   return (
@@ -119,39 +103,7 @@ export function DestinationDetail({ destination }: { destination: Destination })
             ))}
           </ul>
         </div>
-
-        <aside className="lg:sticky lg:top-24 lg:self-start">
-          <div className="rounded-xl border border-border p-6">
-            <p className="text-sm text-muted-foreground">Starting from</p>
-            <p className="mt-1 text-4xl font-semibold text-brand">
-              ${destination.price.toLocaleString()}
-            </p>
-            <p className="mt-1 text-sm text-muted-foreground">per person</p>
-
-            <div className="mt-4 flex items-center gap-2 rounded-lg bg-muted px-3 py-2.5 text-sm text-muted-foreground">
-              <CalendarDays aria-hidden="true" className="size-4 shrink-0" />
-              {formatDepartureDate(destination.departureDate)}
-            </div>
-
-            <Button
-              type="button"
-              className="mt-4 w-full bg-brand text-brand-foreground hover:bg-brand/90"
-              onClick={() => toast.info("Booking flow coming soon")}
-            >
-              Book Now
-              <ArrowRight aria-hidden="true" className="size-4" />
-            </Button>
-
-            <ul className="mt-5 space-y-2 text-sm text-emerald-700 dark:text-emerald-500">
-              {GUARANTEES.map((guarantee) => (
-                <li key={guarantee} className="flex items-start gap-2">
-                  <Check aria-hidden="true" className="mt-0.5 size-4 shrink-0" />
-                  {guarantee}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </aside>
+        <BookingCard destination={destination}></BookingCard>
       </div>
     </section>
   )
