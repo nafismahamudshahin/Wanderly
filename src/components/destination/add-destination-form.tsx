@@ -78,7 +78,7 @@ export function AddDestinationForm({ className }: { className?: string }) {
     const formData = new FormData(form)
     const destination = Object.fromEntries(formData.entries())
 
-    const res = await fetch("http://localhost:5000/destination", {
+    const res = await fetch(`${process.env.API_URL}/destination`, {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(destination),

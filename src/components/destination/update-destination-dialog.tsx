@@ -28,7 +28,7 @@ import {
 } from "@/components/ui/select"
 import type { Destination } from "@/types/types"
 
-const DESTINATIONS_API_URL = "http://localhost:5000/destination"
+const DESTINATIONS_API_URL = `${process.env.API_URL}/destination`
 
 const CATEGORIES = ["Beach", "Mountain", "City", "Adventure", "Cultural"]
 

@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/alert-dialog"
 import type { Destination } from "@/types/types"
 import { useRouter } from "next/navigation"
-const DESTINATIONS_API_URL = "http://localhost:5000/destination"
+const DESTINATIONS_API_URL = `"${process.env.API_URL}/destination`
 
 
 const DeleteDestinationDialog = ({ destination, }: { destination: Destination }) => {

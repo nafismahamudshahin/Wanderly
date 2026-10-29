@@ -1,6 +1,6 @@
 import type { DestinationsResult, Destination, } from "@/types/types"
 
-const DESTINATIONS_API_URL = process.env.DESTINATIONS_API_URL ?? "http://localhost:5000/destination"
+const DESTINATIONS_API_URL = `${process.env.API_URL}/destination`
 
 /** Fetch a single destination by id. Cached per render pass so page data and metadata share one request. */
 export async function getDestination(id: string) {

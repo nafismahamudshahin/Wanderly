@@ -15,6 +15,7 @@ const GUARANTEES = [
 ]
 
 
+
 function toDateInputValue(value: string) {
   const date = new Date(value)
   if (Number.isNaN(date.getTime())) return value.slice(0, 10)
@@ -51,7 +52,7 @@ const BookingCard = ({ destination }: { destination: Destination }) => {
 
     setSubmitting(true)
     try {
-      const res = await fetch("http://localhost:5000/booking", {
+      const res = await fetch(`${process.env.API_URL}/booking`, {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(bookingData),
