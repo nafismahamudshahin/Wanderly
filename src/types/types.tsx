@@ -38,6 +38,17 @@ export interface DestinationFormField {
   control?: "input" | "textarea"
 }
 
+export interface Booking {
+  _id: string
+  userName: string
+  email: string
+  destinationId: string
+  /** ISO date the traveler departs (YYYY-MM-DD). */
+  departureDate: string
+  /** ISO timestamp of when the booking was placed. */
+  bookingDate: string
+}
+
 export interface Testimonial {
   quote: string
   name: string

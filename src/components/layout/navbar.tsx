@@ -12,7 +12,7 @@ import { redirect } from "next/navigation";
 const navLinks = [
   { label: "Home", href: "/", active: true },
   { label: "Destinations", href: "/destinations" },
-  { label: "My Bookings", href: "#" },
+  { label: "My Bookings", href: "/my-bookings" },
   { label: "Admin", href: "#" },
 ]
 

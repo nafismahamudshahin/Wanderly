@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input"
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "Destinations", href: "#" },
-  { label: "My Bookings", href: "#" },
+  { label: "My Bookings", href: "/my-bookings" },
   { label: "My Profile", href: "/profile" },
 ]
 
