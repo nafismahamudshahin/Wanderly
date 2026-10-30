@@ -52,7 +52,11 @@ const BookingCard = ({ destination }: { destination: Destination }) => {
 
     setSubmitting(true)
     try {
-      const res = await fetch(`${process.env.API_URL}/booking`, {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+      if (!apiUrl) {
+        throw new Error("Api url not configured.")
+      }
+      const res = await fetch(`${apiUrl}/booking`, {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(bookingData),

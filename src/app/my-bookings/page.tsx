@@ -1,5 +1,6 @@
+
+import MyBookings from "@/components/booking/BookingList"
 import type { Metadata } from "next"
-import { BookingList } from "@/components/booking/booking-list"
 
 export const metadata: Metadata = {
   title: "My Bookings — Wanderly",
@@ -18,7 +19,7 @@ export default function MyBookingsPage() {
         </p>
 
         <div className="mt-8">
-          <BookingList />
+          <MyBookings />
         </div>
       </div>
     </main>
