@@ -9,16 +9,18 @@ import { signOut, useSession } from "@/lib/auth-client"
 import { Popover, PopoverContent, PopoverDescription, PopoverHeader, PopoverTitle, PopoverTrigger } from "../ui/popover";
 import { redirect } from "next/navigation";
 
-const navLinks = [
-  { label: "Home", href: "/", active: true },
-  { label: "Destinations", href: "/destinations" },
-  { label: "My Bookings", href: "/my-bookings" },
-  { label: "Admin", href: "#" },
-]
+
 
 export function Navbar() {
+  const navLinks = [
+    { label: "Home", href: "/", active: true },
+    { label: "Destinations", href: "/destinations" },
+  ]
   const { data: session } = useSession();
   const user = session?.user;
+  if (user) {
+    navLinks.push({ label: "Add Destination", href: "/add-destination" }, { label: "My Bookings", href: "/my-bookings" },);
+  }
   const haldleLogout = async () => {
     await signOut({
       fetchOptions: {
